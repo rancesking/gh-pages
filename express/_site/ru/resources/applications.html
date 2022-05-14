@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!---
+ Copyright (c) 2016 StrongLoop, IBM, and Express Contributors
+ License: MIT
+-->
+
+<html lang="ru" prefix="og: http://ogp.me/ns#">
+
+  <head>
+    <title>Express applications</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:image" content="https://expressjs.com/images/express-facebook-share.png">
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="stylesheet" href="/css/style.css?_=1652552968">
+    <link rel="stylesheet" href="/css/dropit.css">
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext">
+    <link rel="stylesheet" href="/css/ru.css">
+    <link rel="stylesheet" href="/css/nodeinteractive.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script data-cfasync="false" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script data-cfasync="false" src="/js/ismobile.js"></script>
+    <script data-cfasync="false" src="/js/app.js"></script>
+    <script data-cfasync="false" src="/js/retina.js"></script>
+    <script data-cfasync="false" src="/js/dropit.js"></script>
+    <script data-cfasync="false" src="/js/prism.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+
+</head>
+
+
+  
+  <body class="non-en-doc">
+  
+
+    <section class="page content">
+
+      <header>
+  <div id="blm-banner">
+    Black Lives Matter. <br>
+    <a id="blm-donate"  href="https://support.eji.org/give/153413/#!/donation/checkout">Support the Equal Justice Initiative</a>.
+  </div>
+  <div id="mobile-menu">
+      <div id="nav-button" class="fa fa-bars fa-2x button"></div>
+  </div>
+  <section id="logo"><a href="/" class="express">Express</a>
+  </section>
+  <div id="navbar">
+      <input id="q" placeholder="🔎 search">
+      <ul id="navmenu">
+          <li><a href="/ru/" id="home-menu">Главная</a></li>
+          <li>
+              <ul id="getting-started-menu" class="menu">
+                  <li><a href="/ru/starter/installing.html">Начало работы</a>
+                      <ul>
+                          <li>
+                            <a href="/ru/starter/installing.html">
+                              Установка
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/ru/starter/hello-world.html">
+                              Hello world
+                            </a>
+                          </li>
+                          <li>
+                          <a href="/ru/starter/generator.html">
+                            Генератор приложений Express
+                          </a>
+                          </li>
+                          <li>
+                            <a href="/ru/starter/basic-routing.html">
+                              Основы маршрутизации
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/ru/starter/static-files.html">
+                              Статические файлы
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/ru/starter/faq.html">
+                              FAQ
+                            </a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <ul id="guide-menu" class="menu">
+                  <li><a href="/ru/guide/routing.html">Руководство</a>
+                      <ul>
+                          <li><a href="/ru/guide/routing.html">Маршрутизация</a>
+                          </li>
+                          <li><a href="/ru/guide/writing-middleware.html">Написание кода промежуточных обработчиков</a>
+                          </li>
+                          <li><a href="/ru/guide/using-middleware.html">Использование промежуточных обработчиков</a>
+                          </li>
+                          <li><a href="/ru/guide/using-template-engines.html">Использование шаблонизаторов</a>
+                          </li>
+                          <li><a href="/ru/guide/error-handling.html">Обработка ошибок</a>
+                          </li>
+                          <li><a href="/ru/guide/debugging.html">Отладка</a>
+                          </li>
+                          <li><a href="/ru/guide/behind-proxies.html">Express за прокси</a>
+                          </li>
+                          <li><a href="/ru/guide/migrating-4.html">Переход к Express 4</a>
+                          </li>
+                          <li><a href="/ru/guide/migrating-5.html">Переход к Express 5</a>
+                          </li>
+                          <li><a href="/ru/guide/database-integration.html">Интеграция с базами данных</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <ul id="application-menu" class="menu">
+                  <li><a href="/ru/4x/api.html">API</a>
+                      <ul>
+                          <li><a href="/ru/4x/api.html">4.x</a>
+                          </li>
+                          <li><a href="/ru/3x/api.html">3.x (устарел)</a>
+                          </li>
+                          <li><a href="/2x/">2.x (устарел)</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <ul id="advanced-topics-menu" class="menu">
+                  <li><a href="/ru/advanced/developing-template-engines.html">Расширенные возможности</a>
+                      <ul>
+                          <li><a href="/ru/advanced/developing-template-engines.html">Шаблонизаторы</a>
+                          </li>
+                          <li><a href="/ru/advanced/pm.html">Работа с диспетчерами процессов</a>
+                          </li>
+                          <li><a href="/ru/advanced/security-updates.html">Обновления системы безопасности</a>
+                          </li>
+                          <li><a href="/ru/advanced/best-practice-security.html">Лучшие практические методы в области защиты</a>
+                          </li>
+                          <li><a href="/ru/advanced/best-practice-performance.html">Лучшие практические методы улучшения производительности</a>
+                          </li>
+
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <ul id="resources-menu" class="menu">
+                  <li><a href="/ru/resources/glossary.html" class="active">Ресурсы</a>
+                      <ul>
+                          <li><a href="/ru/resources/glossary.html">Глоссарий</a>
+                          </li>
+                          <li><a href="/ru/resources/middleware.html">Промежуточный обработчик</a>
+                          </li>
+                          <li><a href="/ru/resources/community.html">Сообщество</a>
+                          </li>
+                          <li><a href="/ru/resources/learning.html">Дополнительное обучение</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+  </div><!--<a href="http://strongloop.com/node-js/training/" title="Обучение по Node и Express от StrongLoop" id="strongloop-header">Обучение по Express и Node.js от StrongLoop</a>-->
+</header>
+
+
+      <div id="overlay"></div>
+
+      
+        <div id="i18n-notice-box" class="doc-box doc-warn">
+          <p><p>Этот перевод обеспечивается <a href="http://strongloop.com">StrongLoop / IBM</a>.</p>
+
+Этот документ может быть устаревшим по отношению к документации на английском языке. Последние обновления содержатся в <a href="/">документации на английском языке</a>.
+</p>
+<div id="close-i18n-notice-box" title="Close">✖</div>
+
+        </div>
+      
+      <div id="page-doc" markdown="1">
+<h1 id="applications">Applications</h1>
+
+<p>##MySpace</p>
+
+<p>No introduction required! Everyone knows MySpace,
+and the upcoming https://new.myspace.com is powered by Express.</p>
+
+<p><a href="https://new.myspace.com/"><img src="/images/apps/screenshots/myspace.png" alt="" /></a></p>
+
+<p>Visit <a href="https://new.myspace.com/">MySpace</a></p>
+
+<p>##LearnBoost</p>
+
+<p>LearnBoost provides a free, easy to use online
+education suite including gradebook,
+lesson plans, attendance, reporting, and calendars
+among other tools.</p>
+
+<p><a href="https://www.learnboost.com/"><img src="/images/apps/screenshots/learnboost.png" alt="" /></a></p>
+
+<p>Visit <a href="https://www.learnboost.com/">LearnBoost</a></p>
+
+<p>##Storify</p>
+
+<p>Create stories using social media. Turn what people post
+on social media into compelling stories.  Collect the best photos, video,
+tweets and more to publish.</p>
+
+<p><a href="http://storify.com/"><img src="/images/apps/screenshots/storify.png" alt="" /></a></p>
+
+<p>Visit <a href="http://storify.com/">Storify</a></p>
+
+<p>##Geekli.st</p>
+
+<p>A place for geeks to share what they’ve done, who they did it with and
+connect with great companies and communities.</p>
+
+<p><a href="http://geekli.st"><img src="/images/apps/screenshots/geeklist.png" alt="" /></a></p>
+
+<p>Visit <a href="http://geekli.st">Geekli.st</a></p>
+
+<p>##Klout</p>
+
+<p>Klout is the Standard for Influence. Join Klout to discover your
+influence and compare with others you may know.</p>
+
+<p><a href="http://klout.com"><img src="/images/apps/screenshots/klout.png" alt="" /></a></p>
+
+<p>Visit <a href="http://klout.com">Klout</a></p>
+
+<p>##Prismatic</p>
+
+<p>Prismatic learns from how you interact on social networks so that we
+can show you the most interesting content and conversation from your friends.</p>
+
+<p><a href="http://getprismatic.com/"><img src="/images/apps/screenshots/prismatic.png" alt="" /></a></p>
+
+<p>Visit <a href="http://getprismatic.com/">Prismatic</a></p>
+
+<p>##StudyNotes</p>
+
+<p>At StudyNotes, we are building beautiful and simple
+learning tools to empower students to accelerate their
+learning – i.e. to learn more effectively, in a shorter
+time, and with better long-term recall.</p>
+
+<p><a href="http://www.apstudynotes.org/"><img src="/images/apps/screenshots/studynotes.png" alt="" /></a></p>
+
+<p>Visit <a href="http://www.apstudynotes.org/">StudyNotes</a></p>
+
+<p>##Persona</p>
+
+<p>Persona, or “BrowserID” is Mozilla’s answer
+to a better identification system for your browser,
+this promising tool is definitely worth checking out.</p>
+
+<p><a href="https://login.persona.org/"><img src="/images/apps/screenshots/browserid.png" alt="" /></a></p>
+
+<p>Visit <a href="https://login.persona.org/">Persona</a></p>
+
+<p>##Countly</p>
+
+<p>Extensive real-time mobile analytics as a service.</p>
+
+<p><a href="https://count.ly/"><img src="/images/apps/screenshots/countly.png" alt="" /></a></p>
+
+<p>Visit <a href="https://count.ly/">Countly</a></p>
+
+<h2 id="segmentio">Segment.io</h2>
+
+<p>No more littering your app with tons of different analytics providers.
+Instead, instrument your app once cleanly and then send your data to any analytics service you want.</p>
+
+<p><a href="http://segment.io/"><img src="/images/apps/screenshots/segment.png" alt="" /></a></p>
+
+<p>Visit <a href="http://segment.io/">Segment.io</a></p>
+
+<p>##Yummly</p>
+
+<p>Yummly is the world’s largest and most powerful recipe search site.
+Bringing together recipes from all over the web - making your life easier.</p>
+
+<p><a href="http://yummly.com/"><img src="/images/apps/screenshots/yummly.png" alt="" /></a></p>
+
+<p>Visit <a href="http://yummly.com/">Yummly</a></p>
+
+<p>##Koding</p>
+
+<p>Real-time software development in the browser with integrated
+editor, collaboration, terminals and more.</p>
+
+<p><a href="http://koding.com/"><img src="/images/apps/screenshots/koding.png" alt="" /></a></p>
+
+<p>Visit <a href="http://koding.com/">Koding</a></p>
+
+<p>##Apiary.io</p>
+
+<p>REST API documentation reimagined.</p>
+
+<p><a href="http://apiary.io/"><img src="/images/apps/screenshots/apiary.png" alt="" /></a></p>
+
+<p>Visit <a href="http://apiary.io/">Apiary</a></p>
+
+<p>##Cozy</p>
+
+<p>Cozy is the personal cloud that allows you to put your web apps and your
+data on your hardware: calendars, contacts, feeds, notes. With Cozy, you can build and use your own Express app and use the data stored by the other applications.</p>
+
+<p><a href="http://cozy.io/"><img src="/images/apps/screenshots/cozy.png" alt="" /></a></p>
+
+<p>Visit <a href="http://cozy.io/">Cozy</a></p>
+
+<p>##FlyLatex</p>
+
+<p>Real-time Collaborative environment for LaTex.</p>
+
+<p><a href="http://github.com/alabid/flylatex"><img src="/images/apps/screenshots/flylatex.png" alt="" /></a></p>
+
+<p>Visit <a href="http://github.com/alabid/flylatex">FlyLatex</a></p>
+
+<p>##SimpleSet</p>
+
+<p>Advanced exercise prescription software for physical therapists and other health professionals.</p>
+
+<p><a href="http://www.simpleset.net"><img src="/images/apps/screenshots/simpleset.png" alt="" /></a></p>
+
+<p>Visit <a href="http://www.simpleset.net">SimpleSet</a></p>
+
+<p>##Ghost</p>
+
+<p>Just a blogging platform.</p>
+
+<p><a href="https://ghost.org"><img src="/images/apps/screenshots/ghost.png" alt="" /></a></p>
+
+<p>Visit <a href="https://ghost.org">Ghost</a></p>
+
+<p>##LogHuman</p>
+
+<p>LogHuman is an application insights platform which enables developers to record information such as billing events, feature usage, or system hiccups, as well as flexible metadata to give these events context.</p>
+
+<p><a href="https://loghuman.com"><img src="/images/apps/screenshots/loghuman.png" alt="" /></a></p>
+
+<p>Visit <a href="https://loghuman.com">LogHuman</a></p>
+
+<p>##VogueVerve</p>
+
+<p>VogueVerve is a minimalist fashion social platform. Follow, like and buy.</p>
+
+<p><a href="http://vogueverve.com"><img src="/images/apps/screenshots/vogueverve.png" alt="" /></a></p>
+
+<p>Visit <a href="http://vogueverve.com">VogueVerve</a></p>
+
+<p>##Glip</p>
+
+<p>Real-time team collaboration with integrated task management, video conferencing, shared calendars and more.</p>
+
+<p><a href="https://glip.com"><img src="/images/apps/screenshots/glip.png" alt="" /></a></p>
+
+<p>Visit <a href="https://glip.com">Glip</a></p>
+
+<p>##Gugamarket</p>
+
+<p>Gugamarket is a fullstack REST API framework licensed under GPLv3. It supports giaya.com social login.
+Gugamarket is listed as one of the top Node/Express REST API’s at http://nodeframework.com/.</p>
+
+<p><a href="http://www.gugamarket.com"><img src="/images/apps/screenshots/gugamarket.png" alt="" /></a></p>
+
+<p>Visit <a href="http://www.gugamarket.com">Gugamarket</a></p>
+
+<p>##Add your app or site</p>
+
+<p><a href="https://github.com/expressjs/expressjs.com/blob/gh-pages/ru/resources/applications.md">Edit the Markdown file</a>,
+add a link to your app, then submit a pull request (GitHub login required).  Follow the format of the above listings.</p>
+
+      </div>
+    </section>
+
+    <a id="top" href="#"><img src="/images/arrow.png"></a>
+
+<footer>
+    <div id="footer-content">
+        <div id="github">
+            <iframe src="//ghbtns.com/github-btn.html?user=expressjs&amp;repo=express&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+        </div>
+        <div id="sponsor"><a href="https://expressjs.com">Express</a> проект <a href="https://openjsf.org">фонда OpenJS</a>.</div>
+        <div id="fork"><a href="https://github.com/expressjs/expressjs.com">Создайте клон веб-сайта на GitHub</a>.</div>
+        <div>Copyright &copy; StrongLoop, Inc. и других участников expressjs.com.</div>
+    </div>
+    <div id="license">
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Лицензия Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/us/80x15.png" /></a> Это произведение доступно по <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 3.0 США</a>.
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js" onload="docsearch({
+  apiKey: '7164e33055faa6ecddefd9e08fc59f5d',
+  indexName: 'expressjs',
+  inputSelector: '#q',
+  algoliaOptions: { 'facetFilters': ['lang:ru'] }
+})" async></script>
+
+
+
+  </body>
+
+</html>
+

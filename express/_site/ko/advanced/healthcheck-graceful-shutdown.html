@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<!---
+ Copyright (c) 2016 StrongLoop, IBM, and Express Contributors
+ License: MIT
+-->
+
+<html lang="ko" prefix="og: http://ogp.me/ns#">
+
+  <head>
+    <title>상태 검사와 우아한 종료</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:image" content="https://expressjs.com/images/express-facebook-share.png">
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="stylesheet" href="/css/style.css?_=1652552968">
+    <link rel="stylesheet" href="/css/dropit.css">
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext">
+    <link rel="stylesheet" href="/css/ko.css">
+    <link rel="stylesheet" href="/css/nodeinteractive.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script data-cfasync="false" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script data-cfasync="false" src="/js/ismobile.js"></script>
+    <script data-cfasync="false" src="/js/app.js"></script>
+    <script data-cfasync="false" src="/js/retina.js"></script>
+    <script data-cfasync="false" src="/js/dropit.js"></script>
+    <script data-cfasync="false" src="/js/prism.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+
+</head>
+
+
+  
+  <body class="non-en-doc">
+  
+
+    <section class="page content">
+
+      <header>
+  <div id="blm-banner">
+    Black Lives Matter. <br>
+    <a id="blm-donate"  href="https://support.eji.org/give/153413/#!/donation/checkout">Support the Equal Justice Initiative</a>.
+  </div>
+  <div id="mobile-menu">
+      <div id="nav-button" class="fa fa-bars fa-2x button"></div>
+  </div>
+  <section id="logo"><a href="/" class="express">Express</a>
+  </section>
+  <div id="navbar">
+      <input id="q" placeholder="🔎 search">
+      <ul id="navmenu">
+          <li><a href="/ko/" id="home-menu">홈</a></li>
+          <li>
+              <ul id="getting-started-menu" class="menu">
+                  <li><a href="/ko/starter/installing.html">시작하기</a>
+                      <ul>
+                          <li>
+                            <a href="/ko/starter/installing.html">
+                              설치
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/ko/starter/hello-world.html">
+                              Hello world
+                            </a>
+                          </li>
+                          <li>
+                          <a href="/ko/starter/generator.html">
+                            Express 생성기
+                          </a>
+                          </li>
+                          <li>
+                            <a href="/ko/starter/basic-routing.html">
+                              기본 라우팅
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/ko/starter/static-files.html">
+                              정적 파일
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/ko/starter/faq.html">
+                              자주 묻는 질문(FAQ)
+                            </a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <ul id="guide-menu" class="menu">
+                  <li><a href="/ko/guide/routing.html">안내서</a>
+                      <ul>
+                          <li><a href="/ko/guide/routing.html">라우팅</a>
+                          </li>
+                          <li><a href="/ko/guide/writing-middleware.html">미들웨어 작성</a>
+                          </li>
+                          <li><a href="/ko/guide/using-middleware.html">미들웨어 사용</a>
+                          </li>
+                          <li><a href="/ko/guide/using-template-engines.html">템플리트 엔진 사용</a>
+                          </li>
+                          <li><a href="/ko/guide/error-handling.html">오류 처리</a>
+                          </li>
+                          <li><a href="/ko/guide/debugging.html">디버깅</a>
+                          </li>
+                          <li><a href="/ko/guide/behind-proxies.html">프록시 환경에서 Express 사용</a>
+                          </li>
+                          <li><a href="/ko/guide/migrating-4.html">Express 4로의 이전</a>
+                          </li>
+                          <li><a href="/ko/guide/migrating-5.html">Express 5로의 이전</a>
+                          </li>
+                          <li><a href="/ko/guide/database-integration.html">데이터베이스 통합</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <ul id="application-menu" class="menu">
+                  <li><a href="/ko/4x/api.html">API 참조</a>
+                      <ul>
+                          <li><a href="/ko/4x/api.html">4.x</a>
+                          </li>
+                          <li><a href="/ko/3x/api.html">3.x(더 이상 사용되지 않음)</a>
+                          </li>
+                          <li><a href="/2x/">2.x(더 이상 사용되지 않음)</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <ul id="advanced-topics-menu" class="menu">
+                  <li><a href="/ko/advanced/developing-template-engines.html" class="active">고급 주제</a>
+                      <ul>
+                          <li><a href="/ko/advanced/developing-template-engines.html">템플리트 엔진</a>
+                          </li>
+                          <li><a href="/ko/advanced/pm.html">프로세스 관리자 사용</a>
+                          </li>
+                          <li><a href="/ko/advanced/security-updates.html">보안 업데이트</a>
+                          </li>
+                          <li><a href="/ko/advanced/best-practice-security.html">보안 우수 사례</a>
+                          </li>
+                          <li><a href="/ko/advanced/best-practice-performance.html">성능 우수 사례</a>
+                          </li>
+
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <ul id="resources-menu" class="menu">
+                  <li><a href="/ko/resources/glossary.html">자원</a>
+                      <ul>
+                          <li><a href="/ko/resources/glossary.html">용어집</a>
+                          </li>
+                          <li><a href="/ko/resources/middleware.html">미들웨어</a>
+                          </li>
+                          <li><a href="/ko/resources/community.html">커뮤니티</a>
+                          </li>
+                          <li><a href="/ko/resources/learning.html">추가 학습</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+  </div><!--<a href="http://strongloop.com/node-js/training/" title="StrongLoop의 Node 및 Express 교육" id="strongloop-header">StrongLoop의 Express 및 Node.js 교육</a>-->
+</header>
+
+
+      <div id="overlay"></div>
+
+      
+        <div id="i18n-notice-box" class="doc-box doc-warn">
+          <p><p><a href="http://strongloop.com">StrongLoop / IBM</a>에 의해 제공이 번역.</p>
+
+이 문서는 영문판 문서에 비해 더 오래된 버전일 수도 있습니다. 최신 업데이트를 확인하려면 <a href="/">영문판 문서</a>를 참조하십시오.
+</p>
+<div id="close-i18n-notice-box" title="Close">✖</div>
+
+        </div>
+      
+      <div id="page-doc" markdown="1">
+<h1 id="section">상태 확인와 정상 종료</h1>
+
+<h2 id="section-1">정상 종료</h2>
+
+<p>애플리케이션의 새 버전을 배포할 때, 이전 버전을 교체해야 합니다. 여러분이 사용하는 <a href="pm.html">프로세스 매니저</a>는 애플리케어션에 SIGTERM 신호를 보내 종료를 통보할 것입니다. 애플리케이션이 신호를 받으면, 신규 요청을 받는걸 중단하고, 진행중인 요청을 끝내고, DB 연결이나 파일 사용을 포함한 사용한 리소스를 정리할 것입니다.</p>
+
+<h2 id="section-2">상태 확인</h2>
+
+<p>A load balancer uses health checks to determine if an application instance is healthy and can accept requests. For example, <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/">Kubernetes has two health checks</a>:
+로드 밸런서는 상태 확인을 애플리케이션이 장상 작동하고 요청을 받을 수 있는지 판단하는데 사용합니다. 예시로, <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/">Kubernetes는 2개의 상태 확인을 가지고 있습니다.</a></p>
+
+<ul>
+  <li><code>liveness</code>: 언제 컨테이너를 재시작할지 결정합니다.</li>
+  <li><code>readiness</code>: 컨테이너가 트래픽을 받기 시작할 준비가 되었는지 결정합니다. 컨테이너가 준비되지 않았다면, 서비스 로드 밸런서들에게서 제거됩니다.</li>
+</ul>
+
+<h2 id="section-3">서드 파티 솔루션</h2>
+
+<div class="doc-box doc-warn">
+  <p><b>Warning</b>:
+This information refers to third-party sites,
+products, or modules that are not maintained by the Expressjs team.  Listing here does not constitute
+an endorsement or recommendation from the Expressjs project team.</p>
+
+</div>
+
+<h3 id="terminus">Terminus</h3>
+
+<p><a href="https://github.com/godaddy/terminus">Terminus</a>는 상용구 코드를 쓸 필요를 제거하기 위해 상태 확인 절차와 정상 종료를 추가하는 오픈소스 프로젝트입니다. 먼저 정상 종료를 위한 자원 청소 로직과 상태 확인 로직만 제공하면 됩니다. 그러면 Terminus가 나머지를 처리할겁니다.</p>
+
+<p>아래 명령을 사용해 Terminus를 설치합니다.</p>
+
+<pre><code class="language-console">$ npm i @godaddy/terminus --save
+</code></pre>
+
+<p>다음은 Terminus를 사용하는 쉬운 예제입니다. 자세한 정보는 <a href="https://github.com/godaddy/terminus">https://github.com/godaddy/terminus</a> 를 참고하세요.</p>
+
+<pre><code class="language-js">const http = require('http')
+const express = require('express')
+const terminus = require('@godaddy/terminus')
+
+const app = express()
+
+app.get('/', (req, res) =&gt; {
+  res.send('ok')
+})
+
+const server = http.createServer(app)
+
+function onSignal () {
+  console.log('server is starting cleanup')
+  // start cleanup of resource, like databases or file descriptors
+}
+
+async function onHealthCheck () {
+  // checks if the system is healthy, like the db connection is live
+  // resolves, if health, rejects if not
+}
+
+terminus(server, {
+  signal: 'SIGINT',
+  healthChecks: {
+    '/healthcheck': onHealthCheck
+  },
+  onSignal
+})
+
+server.listen(3000)
+</code></pre>
+
+<h3 id="lightship">Lightship</h3>
+
+<p><a href="https://github.com/gajus/lightship">Lightship</a>은 애플리케이션에 상태, 준비, 생존 확인을 추가하는 오픈소스 프로젝트입니다. Lightship은 스탠드얼론 HTTP 서비스로 분리된 HTTP 서비스를 구동합니다. 이를 통해 확인 절차들을 공개적으로 노출시키지 않고 할 수 있게 해줍니다.</p>
+
+<p>아래 명령을 사용해 Lightship을 설치합니다.</p>
+
+<pre><code class="language-console">$ npm install lightship
+</code></pre>
+
+<p>Lightship을 사용하는 쉬운 예제입니다.</p>
+
+<pre><code class="language-js">const http = require('http')
+const express = require('express')
+const {
+  createLightship
+} = require('lightship')
+
+// Lightship will start a HTTP service on port 9000.
+const lightship = createLightship()
+
+const app = express()
+
+app.get('/', (req, res) =&gt; {
+  res.send('ok')
+})
+
+app.listen(3000, () =&gt; {
+  lightship.signalReady()
+})
+
+// You can signal that the service is not ready using `lightship.signalNotReady()`.
+</code></pre>
+
+<p><a href="https://github.com/gajus/lightship">Lightship 문서</a>에서 <a href="https://github.com/gajus/lightship#lightship-usage-kubernetes-container-probe-configuration">Kubernetes 설정</a>에 대한 예시와 <a href="https://github.com/gajus/lightship#using-with-expressjs">Express.js</a>와의 통합 절차에 대한 완전한 예시를 제공합니다.</p>
+
+      </div>
+    </section>
+
+    <a id="top" href="#"><img src="/images/arrow.png"></a>
+
+<footer>
+    <div id="footer-content">
+        <div id="github">
+            <iframe src="//ghbtns.com/github-btn.html?user=expressjs&amp;repo=express&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+        </div>
+        <div id="sponsor"><a href="https://expressjs.com">Express</a>는 <a href="https://openjsf.org">OpenJS 기반의</a> 프로젝트입니다.</div>
+        <div id="fork"><a href="https://github.com/expressjs/expressjs.com">GitHub에서 웹사이트의 포크를 작성하십시오</a>.</div>
+        <div>Copyright &copy; StrongLoop, Inc., and other expressjs.com contributors.</div>
+    </div>
+    <div id="license">
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/us/80x15.png" /></a> 이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0 미국 라이선스</a>에 따라 이용할 수 있습니다.
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js" onload="docsearch({
+  apiKey: '7164e33055faa6ecddefd9e08fc59f5d',
+  indexName: 'expressjs',
+  inputSelector: '#q',
+  algoliaOptions: { 'facetFilters': ['lang:ko'] }
+})" async></script>
+
+
+
+  </body>
+
+</html>
+

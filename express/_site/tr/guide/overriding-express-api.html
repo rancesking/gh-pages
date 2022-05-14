@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<!---
+ Copyright (c) 2016 StrongLoop, IBM, and Express Contributors
+ License: MIT
+-->
+
+<html lang="tr" prefix="og: http://ogp.me/ns#">
+
+  <head>
+    <title>Express API'yı Ezmek</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:image" content="https://expressjs.com/images/express-facebook-share.png">
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="stylesheet" href="/css/style.css?_=1652552968">
+    <link rel="stylesheet" href="/css/dropit.css">
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;amp;subset=latin,latin-ext">
+    <link rel="stylesheet" href="/css/tr.css">
+    <link rel="stylesheet" href="/css/nodeinteractive.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script data-cfasync="false" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script data-cfasync="false" src="/js/ismobile.js"></script>
+    <script data-cfasync="false" src="/js/app.js"></script>
+    <script data-cfasync="false" src="/js/retina.js"></script>
+    <script data-cfasync="false" src="/js/dropit.js"></script>
+    <script data-cfasync="false" src="/js/prism.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+
+</head>
+
+
+  
+  <body class="non-en-doc">
+  
+
+    <section class="page content">
+
+      <header>
+  <div style="text-align: center; background: #010101; color: #f1f1f1; padding: 16px; font-size: 16px; width: 100vw">
+    Black Lives Matter. <a style="color: #5E80F7; text-decoration: none;" href="https://support.eji.org/give/153413/#!/donation/checkout">Support the Equal Justice Initiative</a>.
+  </div>
+  <div id="mobile-menu">
+      <div id="nav-button" class="fa fa-bars fa-2x button"></div>
+  </div>
+  <section id="logo"><a href="/" class="express">Express</a>
+  </section>
+  <div id="navbar">
+      <input id="q" placeholder="🔎 search" />
+      <ul id="navmenu">
+          <li><a href="/" id="home-menu">Anasayfa</a></li>
+          <li>
+              <ul id="getting-started-menu" class="menu">
+                  <li><a href="/tr/starter/installing.html">Buradan Başlayın</a>
+                      <ul>
+                          <li>
+                            <a href="/tr/starter/installing.html">
+                              Kurulum
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/tr/starter/hello-world.html">
+                              Merhaba Dünya
+                            </a>
+                          </li>
+                          <li>
+                          <a href="/tr/starter/generator.html">
+                            Express Oluşturucu
+                          </a>
+                          </li>
+                          <li>
+                            <a href="/tr/starter/basic-routing.html">
+                              Basit Yönlendirme
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/tr/starter/static-files.html">
+                              Statik Dosyalar
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/tr/starter/faq.html">
+                              SSS
+                            </a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <ul id="guide-menu" class="menu">
+                  <li><a href="/tr/guide/routing.html" class="active">Kılavuz</a>
+                      <ul>
+                          <li><a href="/tr/guide/routing.html">Yönlendirme</a>
+                          </li>
+                          <li><a href="/tr/guide/writing-middleware.html">
+						  Middleware yazma</a>
+                          </li>
+                          <li><a href="/tr/guide/using-middleware.html">Middleware kullanma</a>
+                          </li>
+                          <li><a href="/tr/guide/using-template-engines.html">Şablon motoru kullanma</a>
+                          </li>
+                          <li><a href="/tr/guide/error-handling.html">Hata işleme</a>
+                          </li>
+                          <li><a href="/tr/guide/debugging.html">Hata Ayıklama</a>
+                          </li>
+                          <li><a href="/tr/guide/behind-proxies.html">Express behind proxies</a>
+                          </li>
+                          <li><a href="/tr/guide/migrating-4.html">Express 4 geçiş</a>
+                          </li>
+                          <li><a href="/tr/guide/migrating-5.html">Express 5 geçiş</a>
+                          </li>
+                          <li><a href="/tr/guide/database-integration.html">Database Entegrasyonu</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <ul id="application-menu" class="menu">
+                  <li><a href="/tr/4x/api.html">API Kaynak</a>
+                      <ul>
+                          <li><a href="/tr/4x/api.html">4.x</a>
+                          </li>
+                          <li><a href="/tr/3x/api.html">3.x (Kullanımdan kaldırıldı)</a>
+                          </li>
+                          <li><a href="/2x/">2.x (Kullanımdan kaldırıldı)</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <ul id="advanced-topics-menu" class="menu">
+                  <li><a href="/tr/advanced/developing-template-engines.html">Gelişmiş konular</a>
+                      <ul>
+                          <li><a href="/tr/advanced/developing-template-engines.html">Şablon motorları</a>
+                          </li>
+                          <li><a href="/tr/advanced/pm.html">Proses yöneticisi kullanma</a>
+                          </li>
+                          <li><a href="/tr/advanced/security-updates.html">Gğvenlik güncellemeleri</a>
+                          </li>
+                          <li><a href="/tr/advanced/best-practice-security.html">En iyi güvenlik uygulamaları</a>
+                          </li>
+                          <li><a href="/tr/advanced/best-practice-performance.html">En iyi performans uygulamaları</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <ul id="resources-menu" class="menu">
+                  <li><a href="/tr/resources/glossary.html">Kaynaklar</a>
+                      <ul>
+                          <li>
+                            <a href="/tr/resources/community.html">Topluluk</a>
+                          </li>
+                          <li>
+                            <a href="/tr/resources/glossary.html">Terimler</a>
+                          </li>
+                          <li>
+                            <a href="/tr/resources/middleware.html">Middleware</a>
+                          </li>
+                          <li>
+                            <a href="/tr/resources/utils.html">Yardımcı Modüller</a>
+                          </li>
+                          <li>
+                            <a href="/tr/resources/frameworks.html">Yapılar</a>
+                          </li>
+                          <li>
+                            <a href="/tr/resources/learning.html">Ek öğrenme</a>
+                          </li>
+                          <li>
+                            <a href="/tr/resources/companies-using-express.html">Express kullanan şirket</a>
+                          </li>
+                          <li>
+                            <a href="/tr/resources/contributing.html">Express'e katkıda bulunmak</a>
+                          </li>
+                          <li>
+                            <a href="/tr/changelog/4x.html">Sürüm Notları</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <!--
+          <li>
+              <ul id="changelog-menu" class="menu">
+                  <li><a href="/tr/changelog/4x.html">Changelog</a>
+                      <ul>
+                          <li><a href="/tr/changelog/4x.html">4.x</a></li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+        -->
+      </ul>
+  </div>
+</header>
+
+
+      <div id="overlay"></div>
+
+      
+        <div id="i18n-notice-box" class="doc-box doc-warn">
+          <p>Bu doküman ingilizce dokümana göre eski olabilir. Son güncellemeler için lütfen <a href="/">İngilizce Dokümanı</a>. ziyaret edin
+</p>
+<div id="close-i18n-notice-box" title="Close">✖</div>
+
+        </div>
+      
+      <div id="page-doc" markdown="1">
+<div id="page-doc">
+
+  <h1 id="express-apiy-ezmek">Express API’yı Ezmek</h1>
+
+  <p>Express API istek ve yanıt objelerindeki çeşitli özellik ve metotlardan oluşur. Bunlar prototip tarafından miras alınır. Express API’ın iki uzantı noktası vardır:</p>
+
+  <ol>
+    <li><code>express.request</code> ve <code>express.response</code> alanlarındaki global prototipler.</li>
+    <li><code>app.request</code> ve <code>app.response</code> alanlarındaki uygulamaya özel prototipler.</li>
+  </ol>
+
+  <p>Global prototipleri değiştirmek aynı işlemde yüklenilen bütün Express uygulamalarını etkiler. İstenirse, yeni bir uygulama yaratıldıktan sonra sadece uygulamaya özel prototipleri değiştirerek, uygulama bazlı değişiklikler yapılabilir.</p>
+
+  <h2 id="metotlar">Metotlar</h2>
+
+  <p>Mevcut metotların davranış ve imzasını özel bir fonksiyon atayarak kendi metotlarınızla mevcutları geçersiz kılabilirsiniz.</p>
+
+  <p>Aşağıdaki örnek <a href="/4x/api.html#res.sendStatus">res.sendStatus</a> metodunun davranışını geçersiz kılmayı gösterir:</p>
+
+  <pre><code class="language-js">app.response.sendStatus = function (statusCode, type, message) {
+  // kolaylık için kod kasıtlı olarak basit yapıldı
+  return this.contentType(type)
+    .status(statusCode)
+    .send(message)
+}
+</code></pre>
+
+  <p>Yukarıdaki implementasyon <code>res.sendStatus</code> metodunun orijinal imzasını tamamen değiştiriyor. Şimdi ise bir statü kodu, kodlama tipi, ve istemciye gönderilecek mesajı kabul ediyor.</p>
+
+  <p>Geçersiz kılınan metot şimdi bu şekilde kullanılabilir:</p>
+
+  <pre><code class="language-js">res.sendStatus(404, 'application/json', '{"error":"resource not found"}')
+</code></pre>
+
+  <h2 id="zellikler">Özellikler</h2>
+
+  <p>Express API özellikleri şunlardan biridir:</p>
+
+  <ol>
+    <li>Atanan özellikler (örnek: <code>req.baseUrl</code>, <code>req.originalUrl</code>)</li>
+    <li>Alıcı (getter) olarak tanımlananlar (örnek: <code>req.secure</code>, <code>req.ip</code>)</li>
+  </ol>
+
+  <p>1 numaralı kategorideki özellikler şimdiki istek-yanıt döngüsü kapsamında <code>request</code> ve <code>response</code> objelerine dinamik olarak atandıklarından, değiştirilemez ve davranışları geçersiz kılınamaz.</p>
+
+  <p>2 numaralı kategoridekiler ise Express API’ın uzantılarının API’ları kullanılarak değiştirilip geçersiz kılınabilir.</p>
+
+  <p>Aşağıdaki kod <code>req.ip</code> alanının değerinin nasıl türetileceğini yeniden yazar. Şimdi, sadece  <code>Client-IP</code> istek başlığının değerini döndürüyor.</p>
+
+  <pre><code class="language-js">Object.defineProperty(app.request, 'ip', {
+  configurable: true,
+  enumerable: true,
+  get () { return this.get('Client-IP') }
+})
+</code></pre>
+</div>
+
+      </div>
+    </section>
+
+    <a id="top" href="#"><img src="/images/arrow.png"></a>
+
+<footer>
+  <section id="doc-langs">
+   <a href="http://strongloop.com">StrongLoop/IBM</a> tarafından sağlanan belge çevirileri:
+  <a href="/fr/">Fransızca</a>, <a href="/de/">Almanca</a>, <a href="/es/">İspanyolca</a>, <a href="/it/">İtalyanca</a>, <a href="/ja/">Japonca</a>, <a href="/ru/">Rusça</a>, <a href="/zh-cn/">Çince</a>, <a href="/zh-tw/">Klasik Çince</a>, <a href="/ko/">Korece</a>, <a href="/pt-br/">Portekizce</a>.
+  <br>
+  Topluluk çevirisi için: <a href="/sk/">Slovakça</a>, <a href="/uk/">Ukraynaca</a> and <a href="/uz/">Özbekçe</a>.
+  </section>
+  <div id="footer-content">
+      <div id="github">
+        <a class="github-button" href="https://github.com/expressjs/expressjs.com" data-icon="octicon-star" aria-label="Star expressjs/expressjs.com on GitHub">Star</a>
+      </div>
+      <div id="sponsor"><a href="https://expressjs.com">Express</a> bir <a href="https://openjsf.org">OpenJS Vakfı</a> projesidir.</div>
+      <div id="fork"><a href="https://github.com/expressjs/expressjs.com">Github'da Forkla</a>.</div>
+      <div>Telif Hakkı &copy; 2017 StrongLoop, IBM, ve diğer expressjs.com katkıda bulunanlar.</div>
+  </div>
+  <div id="license">
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/us/80x15.png" /></a> Bu iş<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons Attribution-ShareAlike 3.0 United States License</a> lisansı altındadır.
+  </div>
+</footer>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js" onload="docsearch({
+  apiKey: '7164e33055faa6ecddefd9e08fc59f5d',
+  indexName: 'expressjs',
+  inputSelector: '#q',
+  algoliaOptions: { 'facetFilters': ['lang:tr'] }
+})" async></script>
+
+
+
+  </body>
+
+</html>
+
